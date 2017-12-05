@@ -10,18 +10,30 @@ import { Component } from '@angular/core';
   </div>
 
   <div>
-	<button (click)="handleClick()">Picale Papá</button>
+	<button (click)="handleClick(username.value)">Picale Papá</button>
+
 	<input
-	[ngModel]="name"
-	(ngModelChange)="handleChange($event)"
-	/>
-	<input
-	[(ngModel)]="name"
+	#username
 	/>
 	<div>
 		{{name}}
 	</div>
 
+
+	<div>
+		<input
+		[value]="name"
+		(input)="handleChange($event)"
+		/>
+	</div>
+
+	<template [ngIf]="name.length > 2">
+		Buscando...{{name}}
+	</template>
+
+	<div *ngIf="name.length > 2">
+		Buscando...{{name}}
+	</div>
   </div>
 
   `
@@ -32,15 +44,15 @@ export class AppComponent{
 
 	constructor(){
 		this.title = 'Testing angular 5';
-		this.name = 'David';
+		this.name = '';
 	}
 
-	handleChange(value: string){
+	handleChange(event: any){
+		this.name = event.target.value;
+	}
+
+	handleClick(value: string){
 		this.name = value;
-	}
-
-	handleClick(){
-		this.name = 'perro';
 	}
 
 }
