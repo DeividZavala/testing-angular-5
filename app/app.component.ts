@@ -12,11 +12,16 @@ import { Component } from '@angular/core';
   <div>
 	<button (click)="handleClick()">Picale Papá</button>
 	<input
-	[value]="name"
-	(input)="handleInput($event)"
-	(blur)="handleBlur($event)"
+	[ngModel]="name"
+	(ngModelChange)="handleChange($event)"
 	/>
-	{{name}}
+	<input
+	[(ngModel)]="name"
+	/>
+	<div>
+		{{name}}
+	</div>
+
   </div>
 
   `
@@ -30,12 +35,8 @@ export class AppComponent{
 		this.name = 'David';
 	}
 
-	handleInput(event: any){
-		this.name = event.target.value;
-	}
-
-	handleBlur(event: any){
-		this.name = event.target.value;
+	handleChange(value: string){
+		this.name = value;
 	}
 
 	handleClick(){
