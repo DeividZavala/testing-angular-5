@@ -36,6 +36,11 @@ import { Component } from '@angular/core';
 	</div>
   </div>
 
+
+  <div>
+  	<passengers-component></passengers-component>
+  </div>
+
   `
 })
 export class AppComponent{
