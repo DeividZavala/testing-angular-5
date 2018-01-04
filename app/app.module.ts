@@ -5,6 +5,9 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { PassengersComponent } from "./passengers/passengers.component";
 
+//custom modules
+import { PassengerModule } from "./passenger-dashboard/passenger-dashboard.module";
+
 
 @NgModule({
   declarations: [
@@ -12,9 +15,13 @@ import { PassengersComponent } from "./passengers/passengers.component";
 	PassengersComponent
   ],
   imports: [
+	//angular modules
     BrowserModule,
 	CommonModule,
-	FormsModule
+	FormsModule,
+
+	//custom modules
+	PassengerModule
   ],
   bootstrap: [AppComponent]
 })
