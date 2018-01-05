@@ -36,9 +36,8 @@ import { Component } from '@angular/core';
 	</div>
   </div>
 
-
   <div>
-  	<passengers-component></passengers-component>
+	<passenger-dashboard></passenger-dashboard>
   </div>
 
   `
