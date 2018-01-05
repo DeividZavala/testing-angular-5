@@ -23,6 +23,27 @@ interface Passenger{
 					{{passenger.fullname}}
 				</li>
 			</ul>
+
+			<h1>Lista de pasajeros</h1>
+			<ul>
+				<li *ngFor="let passenger of passengers">
+					<span class="status"
+					[style.backgroundColor]="(passenger.checkedIn ? '#2ecc71':'#c0392b')"></span>
+					{{passenger.fullname}}
+				</li>
+			</ul>
+
+			<h1>Lista de pasajeros</h1>
+			<ul>
+				<li *ngFor="let passenger of passengers">
+					<span class="status"
+					[ngStyle]="{'backgroundColor': (passenger.checkedIn ? '#2ecc71':'#c0392b')}"
+					></span>
+					{{passenger.fullname}}
+				</li>
+			</ul>
+
+
 		</div>
 
 	`
