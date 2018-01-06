@@ -9,27 +9,17 @@ import { Passenger } from "../../models/passenger.interface";
 	template: `
 
 		<div>
-			<passenger-count></passenger-count>
-			<passenger-detail></passenger-detail>
+			<passenger-count
+				[items]="passengers"
+			>
+			</passenger-count>
 			<h1>Lista de pasajeros</h1>
-			<ul>
-				<li *ngFor="let passenger of passengers">
-					<span class="status"
-					[ngClass]="{
-						'checked-in': passenger.checkedIn,
-						'checked-out':!passenger.checkedIn
-					}"></span>
-					{{passenger.fullname}}
-					<p>{{passenger | json}}</p>
-					<div class="date">
-						check in date: {{ passenger.checkInDate ? (passenger.checkInDate | date: "yMMMMd"):"No disponible" }}
-					</div>
-					<div>
-						Children: {{passenger.children?.length || 0}}
-					</div>
+			<passenger-detail
+				*ngFor="let passenger of passengers;"
+				[detail]="passenger"
+			>
+			</passenger-detail>
 
-				</li>
-			</ul>
 		</div>
 
 	`
