@@ -9,6 +9,8 @@ import { Passenger } from "../../models/passenger.interface";
 	template: `
 
 		<div>
+			<passenger-count></passenger-count>
+			<passenger-detail></passenger-detail>
 			<h1>Lista de pasajeros</h1>
 			<ul>
 				<li *ngFor="let passenger of passengers">
