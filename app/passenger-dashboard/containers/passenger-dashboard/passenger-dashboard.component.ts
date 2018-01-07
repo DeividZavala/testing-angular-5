@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { Passenger } from "../../models/passenger.interface";
+import { Object } from "core-js/library/web/timers";
 
 
 @Component({
@@ -9,15 +10,19 @@ import { Passenger } from "../../models/passenger.interface";
 	template: `
 
 		<div>
+
 			<passenger-count
-				[items]="passengers"
-			>
+				[items]="passengers">
 			</passenger-count>
 			<h1>Lista de pasajeros</h1>
+			<div *ngFor="let passenger of passengers;">
+				{{ passenger.fullname }}
+			</div>
 			<passenger-detail
 				*ngFor="let passenger of passengers;"
 				[detail]="passenger"
-			>
+				(edit)="handleEdit($event)"
+				(remove)="handleRemove($event)">
 			</passenger-detail>
 
 		</div>
@@ -31,7 +36,6 @@ export class PassengerDashboardComponent implements OnInit{
 	constructor(){}
 
 	ngOnInit(){
-		console.log("ngOnInit");
 		this.passengers = [
 			{
 				id: 1,
@@ -57,5 +61,21 @@ export class PassengerDashboardComponent implements OnInit{
 			}
 		];
 	}
+
+	handleEdit(event: Passenger) {
+		this.passengers = this.passengers.map((passenger: Passenger) => {
+		  if (passenger.id === event.id) {
+			passenger = Object.assign({}, passenger, event);
+		  }
+		  return passenger;
+		});
+	}
+
+	handleRemove(event: Passenger) {
+		this.passengers = this.passengers.filter((passenger: Passenger) => {
+			return passenger.id !== event.id;
+		});
+	}
+
 
 }
