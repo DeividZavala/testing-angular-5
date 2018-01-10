@@ -1,4 +1,3 @@
-"use strict";
 import { Component, OnInit } from "@angular/core";
 
 import { Passenger } from "../../models/passenger.interface";
