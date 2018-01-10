@@ -40,6 +40,10 @@ import { Component } from '@angular/core';
 	<passenger-dashboard></passenger-dashboard>
   </div>
 
+  <div>
+	<passenger-viewer></passenger-viewer>
+  </div>
+
   `
 })
 export class AppComponent{
