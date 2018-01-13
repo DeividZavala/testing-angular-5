@@ -8,18 +8,17 @@
       "checkInDate": 1234567800000
     },
     {
-      "id": 2,
       "fullname": "Casitas ENP",
+      "id": 2,
       "checkedIn": false,
-      "checkInDate": null,
-      "baggage": ""
+      "baggage": "none"
     },
     {
-      "id": 3,
       "fullname": "Pollito Vazquez",
+      "id": 3,
       "checkedIn": true,
-      "checkInDate": 1235667800000,
-      "baggage": ""
+      "baggage": "hold-only",
+      "checkInDate": 1235667800000
     }
   ]
 }
